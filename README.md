@@ -6,7 +6,7 @@
 
 
 
-<h1>Program on JavaEE</h1>
+<h1>Program on Java</h1>
 
 
 
