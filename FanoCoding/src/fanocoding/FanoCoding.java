@@ -1,59 +1,58 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package fanocoding;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
+
 
 /**
  *
- * @author pasha
+ * @author Fergonesh
  */
 public class FanoCoding {
     
+    private ArrayList<Integer> probabilityList;
+    private ArrayList<NumberCode> numcodeList = new ArrayList<NumberCode>();
     
-      public ArrayList<NumberCode> getFanoCodeOfNum(ArrayList<Integer> list)
+    
+    FanoCoding(ArrayList<Integer> prob)
     {
+        this.probabilityList = new ArrayList<Integer>(prob);
+    }
+    
+      public void getFanoCodeOfNum()
+    {
+        sortArrayListbyDescending();
+        
+        
         
     }
     
-    private void sortArrayList()
+    private void sortArrayListbyDescending()
   {
       Collections.sort(this.probabilityList);
       Collections.reverse(this.probabilityList);
   }
     
-    
-        public static ArrayList getProbability()
-    {
-        Scanner in = new Scanner(System.in);
-        ArrayList<Integer> res = new ArrayList<Integer>();
-
+        private int getCenterIndex(ArrayList<Integer> sortedList)
+  {
+      int sumList=0;
+      for(Integer i:sortedList)
+      {
+          sumList+=i;
+      }
+      
+      int centerIndex=0;
+      for(int j=0;j<(sortedList.size()-1);j++)
+      {
+          int l = sortedList.get(j);
+          int r = sortedList.get(j+1);
+          if ( (l>=(sumList/2)) && (r<=(sumList/2)) )
+          {
+              centerIndex = l-sumList/2<=sumList/2-r ? j:j+1;
+          }
+      }
+      
+      return centerIndex;
+  } 
         
-    System.out.print("Enter a sentence: ");
-    while (!in.hasNextLine()); {
-        //input.addAll(Array.asList(   in.nextLine().split("\\s+")));
-        String InputStr = in.nextLine();
-        int line = InputStr.split("\\s+").length;
-        String[] str = new String[line];
-        
-       
-       str = InputStr.split("\\s+");
-       System.out.println(line);
-       for (String s: str)
-       {
-        res.add(Integer.parseInt(s));
-        //System.out.println(s);
-        
-       }
-        //input.addAll(in.nextLine().split("\\s+"));
-
-    } 
-
-        in.close();
-        return res;
-    }
 }

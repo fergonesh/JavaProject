@@ -1,14 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fanocoding;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author pasha
+ * @author Fergonesh
  */
 public class NumberCode {
     private int probability;
